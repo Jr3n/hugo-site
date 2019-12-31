@@ -1,7 +1,8 @@
 ---
 title: Nginx Location 處理
-tags: nginx, location
-notebook: Nginx
+date: 2019-12-31T16:40:09Z
+draft: false
+tags: ["nginx", "location"]
 ---
 # Nginx Location 處理
 ## Directive Syntax Explained 符號說明

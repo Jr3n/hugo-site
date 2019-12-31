@@ -1,7 +1,8 @@
 ---
 title: Ngrok installation
-tags: ngrok
-notebook: 
+date: 2019-12-31T16:40:09Z
+draft: false
+tags: ["ngrok"]
 ---
 # Ngrok 安裝
 > 由於 RD 開發需要讓第三方打回自己電腦上的機器，故使用 Ngrok 處理這項專案。

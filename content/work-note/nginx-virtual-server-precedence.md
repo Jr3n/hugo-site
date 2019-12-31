@@ -1,7 +1,8 @@
 ---
 title: Nginx Virtual Server Precedence
-tags: nginx, server_name, listen
-notebook: Nginx
+date: 2019-12-31T16:40:09Z
+draft: false
+tags: ["nginx", "server-name", "listen"]
 ---
 # Nginx Virtual Server Precedence
 ## Parsing the "listen" Directive to Find Possible Matches
