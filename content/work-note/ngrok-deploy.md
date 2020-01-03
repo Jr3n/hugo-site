@@ -4,24 +4,26 @@ date: 2019-12-31T16:40:09Z
 draft: false
 tags: ["ngrok"]
 ---
+[TOC]
 # Ngrok 安裝
+## 起因
 > 由於 RD 開發需要讓第三方打回自己電腦上的機器，故使用 Ngrok 處理這項專案。
 > Ngrok 看起來如下圖，透過 client 的程式打了一個洞，直接讓第三方進來。
 > ![Ngrok](https://process.filestackapi.com/cache=expiry:max/resize=width:700/compress/XoNCgrwnQhOoQMfy1O5T)  
 > 圖片來源：[codementor](https://process.filestackapi.com/cache=expiry:max/resize=width:700/compress/XoNCgrwnQhOoQMfy1O5T)
-> # What is ngrok?
+> ### What is ngrok?
 > ngrok is a reverse proxy that creates a secure tunnel from a public endpoint to a locally running web service. ngrok captures and analyzes all traffic over the tunnel for later inspection and replay.
 
-# 使用 Google Cloud Platform 的機器實做
+## 使用 Google Cloud Platform 的機器實做
 > 情境設定：  
 > 機器IP: 1.1.1.1  
 > Domain: example.com  
-## 域名解析
+### 域名解析
 1. 添加一筆 A 記錄 ngrok.example.com 解析到機器 IP 1.1.1.1 上。
 2. 添加一筆 CNAME 記錄 *.ngrok.example.com 解析到 ngrok.example.com。
 ---
-## 安裝 go 環境 
-### 從官網下載 tarball
+### 安裝 go 環境 
+#### 從官網下載 tarball
 1. 下載 go 的 tar 檔
 ```bash
 wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
@@ -40,7 +42,7 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```bash
 source /etc/profile.d/go.sh
 ```
-### 使用 yum 安裝
+#### 使用 yum 安裝
 1. 執行 yum install -y go
 2. 設定環境變數 /etc/profile.d/go.sh
 ```bash
@@ -50,7 +52,7 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 3. 設定完成後執行 `source /etc/profile.d/go.sh`
 ---
-## 從 git 下載 ngrok 的 source code && 生成證書
+### 從 git 下載 ngrok 的 source code && 生成證書
 1. `cd /usr/local/ &&  git clone https://github.com/inconshreveable/ngrok.git` 
 2. 執行以下命令，生成新的證書，並取代 source code 的證書。
 ```bash
@@ -64,7 +66,7 @@ cp rootCA.pem $GOPATH/assets/client/tls/ngrokroot.crt
 cp device.crt $GOPATH/assets/server/tls/snakeoil.crt 
 cp device.key $GOPATH/assets/server/tls/snakeoil.key
 ```
-### 編譯 server 端的程式
+#### 編譯 server 端的程式
 1. 在 /usr/local/ngrok/ 目錄下執行
 ```bash
 make release-server
@@ -77,7 +79,7 @@ make release-server
 > - httpsAddr：訪問 https 使用的 port \(預設 443\)
 > - tunnelAddr：ngrok 的連接 port \(預設 4443\)
 > - 以上的設定都可以改，沒改的話，會使用預設值。\(要檢查一下 iptables 的設定。\)
-### 編譯 client 端的程式
+#### 編譯 client 端的程式
 1. 根據 client 的 OS 及位元，export 不同的變數。
    1. 根據 OS：
       - 如果是 linux：`export GOOS=linux`
@@ -112,7 +114,7 @@ ngrok.exe -subdomain=renato -config="ngrok.cfg" 80
 ![ngrok_connect](https://i.imgur.com/sisw1UU.png)
 
 ---
-## 利用 Nginx 進行 proxy_pass
+### 利用 Nginx 進行 proxy_pass
 如遇到 server 80 port 已被佔用，可以設定 pass 讓資料可以正常的 forward。
 ```nginx
 server {

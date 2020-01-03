@@ -4,6 +4,7 @@ date: 2019-12-31T16:40:09Z
 draft: false
 tags: ["nginx", "remote-address", "x-forwarded-for"]
 ---
+[TOC]
 ## 起因
 > 由於發現有大量的IP訪問Server，排查後發現，收到的請求插有X-Forwarded-For的標頭。 對方在此一標頭塞入偽造的IP，而 Nginx Waf 所判斷的IP剛好是XFF(如下方程式碼)，故沒辦法有效的擋下請求。
 > ```nginx

@@ -4,6 +4,7 @@ date: 2019-12-31T16:40:09Z
 draft: false
 tags: ["nginx", "server-name", "listen"]
 ---
+[TOC]
 # Nginx Virtual Server Precedence
 ## Parsing the "listen" Directive to Find Possible Matches
 Nginx 會根據 server block 中， `listen` 的設定，去決定哪個 block 回應請求。
