@@ -1,80 +1,127 @@
 ---
-title: Openresty template
+title: Openresty upstream health check
 date: 2020-01-03T21:40:09Z
-draft: true
-tags: ["nginx", "template", "openresty"]
+draft: false
+tags: ["nginx", "healthcheck", "openresty"]
 ---
 [TOC]
 ## 起因
-> 當機房的網路設備要維護時，原本統一回傳簡單的靜態頁面。
-> 希望能依據 domain 回傳不同的內容給使用者。 
-> 但官方的文件的資源不多，後來找了非官方的`lua-resty-template`使用。
+> 在發佈期間，想讓 nginx ，判斷後端的狀態，達到自動上下線，不用手動切換。
 
-## Installation
-### Git clone 
-```bash
-$ git clone https://github.com/bungle/lua-resty-template.git
-```
-把 `template.lua` 跟 `template` directory 放到 library 的路徑下，並要在 `nginx.conf` 的 `lua_package_path` 加上路徑。
-
-### Using OpenResty Package Manager (opm)
-```bash
-$ opm get bungle/lua-resty-template
-```
-
-## Nginx configuration
-要設定 template 的路徑，讓 nginx 去找檔案。
-如果沒有設定的話，會以 `root`(`ngx.var.document_root`) 當路徑。
-
+## nginx 設定
 ```nginx
-set $template_root /usr/local/nginx/conf/maintain;
-set $template_location /templates;
-```
-- path precedence：
-  1. `template_location` (如果 status code 非 200，會往下找)
-  2. `template_root`
-  3. `ngx.var.document_root`
+http {
+    lua_package_path "/path/to/lua-resty-upstream-healthcheck/lib/?.lua;;";
 
+    ## 指定共享內存，可依 upstream 的大小進行調整。
+    lua_shared_dict healthcheck 1m;
 
-```lua
-local template = require("template")  --加入 template module
-local cjson = require("cjson.safe")
+    ## 範例 upstream block:
+    upstream foo {
+        server 127.0.0.1:12354;
+        server 127.0.0.1:12355;
+        server 127.0.0.1:12356 backup;
+    }
 
-local res = ngx.var.res
-local domainType = ngx.var.domainType
-local sTime, eTime
--- If site is null return nomatch html
-if res == ngx.null then
-        template.render("nomatch.html")
-        return
-else
-        -- If res's value can not decode by json
-        local resJson = cjson.decode(res)
-        if resJson == nil then
-                template.render("nomatch.html")
-                return
-        end
+    upstream bar {
+        ...
+    }
 
-        if domainType == "Member" or domainType == "Mobile" then
-                sTime = resJson.memberStartTime
-                eTime = resJson.memberEndTime
-        elseif domainType == "Plat" then
-                sTime = resJson.platStartTime
-                eTime = resJson.platEndTime
-        else
-                template.render("nomatch.html")
-                return
-        end
-
-        local content = {
-                startTime = sTime,
-                endTime = eTime,
-                serviceUrl = resJson.serviceUrl
+    ## 在worker初始化時，啟動定時器，進行後端節點的檢查
+    init_worker_by_lua_block {
+        local hc = require "resty.upstream.healthcheck"
+        local ok, err = hc.spawn_checker {
+            -- shm 指定共享內存區，
+            shm = "healthcheck",
+            -- type 指定 healthcheck 的方法，HTTP or TCP，目前只支援 http
+            type = "http",
+            -- upstream 指定要檢查的 upstream
+            upstream = "foo",
+            -- 設定 HTTP 請求所發的 request
+            http_req = "GET /uri/to/check HTTP/1.0\r\nHost: foo\r\n\r\n",
+            -- 請求間隔時間，default 為 1000 ms。最小值為 2 ms。
+            interval = 2000,
+            -- request timeout 時間。default 為 1000 ms。
+            timeout = 1000,
+            -- 失敗多少次後，將節點標記為 down。 default 為 5 次。
+            fall = 3, 
+            -- 成功多少次後，將節點標記為 up。 default 為 2 次。
+            rise = 2,
+            -- 收到哪些 http status code 為正常。
+            valid_statuses = {200, 302},
+            -- 同時能發多少次測試， default 為 1。
+            concurrency = 1,
         }
-        template.render("index.html", content)
-        return
-end
+
+        if not ok then
+            ngx.log(ngx.ERR, "failed to spawn health checker: ", err)
+            return
+        end
+        ## 有幾個 upstream 要監控，就寫幾次。
+        ok, err = hc.spawn_checker{
+            shm = "healthcheck",
+            upstream = "bar",
+            ...
+        }
+
+        if not ok then
+            ngx.log(ngx.ERR, "failed to spawn health checker: ", err)
+            return
+        end
+
+        -- Just call hc.spawn_checker() for more times here if you have
+        -- more upstream groups to monitor. One call for one upstream group.
+        -- They can all share the same shm zone without conflicts but they
+        -- need a bigger shm zone for obvious reasons.
+    }
+
+    ## 配置 healthcheck result page
+    server {
+        ...
+
+        # status page for all the peers:
+        location = /status {
+            access_log off;
+            allow 127.0.0.1;
+            deny all;
+
+            default_type text/plain;
+            content_by_lua_block {
+                local hc = require "resty.upstream.healthcheck"
+                ngx.say("Nginx Worker PID: ", ngx.worker.pid())
+                ngx.print(hc.status_page())
+            }
+        }
+    }
+}
 ```
+
+## healthcheck result page
+產生所有 upstream healthcheck 的結果，如果該 upstream 沒有設定 checker，會被標上 `(NO checkers)`。
+```
+Upstream foo
+    Primary Peers
+        127.0.0.1:12354 up
+        127.0.0.1:12355 DOWN
+    Backup Peers
+        127.0.0.1:12356 up
+
+Upstream bar
+    Primary Peers
+        127.0.0.1:12354 up
+        127.0.0.1:12355 DOWN
+        127.0.0.1:12357 DOWN
+    Backup Peers
+        127.0.0.1:12356 up
+
+Upstream notchecker (NO checkers)
+    Primary Peers
+        127.0.0.1:12354 up
+        127.0.0.1:12355 up
+    Backup Peers
+        127.0.0.1:12356 up
+```
+
 ## Reference
-- [Lua模版渲染](https://www.kancloud.cn/inwsy/project/1129452)
-- [lua-resty-template](https://github.com/bungle/lua-resty-template)
+- [基于openresty的后端应用健康检查-动态上下线](https://leokongwq.github.io/2018/01/31/openresty-health-check-dynamic-up-down.html)
+- [lua-resty-upstream-healthcheck](https://github.com/openresty/lua-resty-upstream-healthcheck)
