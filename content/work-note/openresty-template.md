@@ -187,7 +187,8 @@ else
 end
 ```
 
-#### template html
+#### Template html
+##### index.html
 ```html
 {(header.html)}
 <body>
@@ -209,9 +210,53 @@ end
 </body>
 </html>
 ```
-{(template)}：include 另一個 template 進來。
-{* expression *}：將變數帶進 html 裡。
-{% lua code %}：執行 lua 的程式，像是 if, for 等等。
+
+##### header.html
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>網站維護中</title>
+    <link rel="stylesheet" href="/css/warn.css" type="text/css" />
+</head>
+```
+
+##### Template syntax
+- {(template)}：include 另一個 template 進來。
+- {* expression *}：將變數帶進 html 裡。
+- {% lua code %}：執行 lua 的程式，像是 if, for 等等。
+- {# comments #}：註解。
+
+### Output
+以上述的`example.com`為例的話，訪問後的頁面的輸出如下：
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>網站維護中</title>
+    <link rel="stylesheet" href="/css/warn.css" type="text/css" />
+</head>
+<body>
+    <div id="pic" class="warn_pic">
+        <img src="/images/maintain.png" alt="webstie_maintaining" />
+    </div>
+    <div id="txt" class="warn_txt">
+                <h1 id = "ipAddr"></h1>
+        <h2>伺服器維護中</h2>
+        <p>
+            為了提供更好的服務，目前網站正在進行維護<br />
+            維護將預計於 1997-03-27 06:00:00 完成<br />
+            如有任何疑問<br />
+            歡迎聯繫我們的<a href=https://www.google.com>客服人員</a><br />
+        </p>
+    </div>
+</body>
+</html>
+```
+
+其他更進階的使用可以看 Reference。
 
 ## Reference
 - [Lua模版渲染](https://www.kancloud.cn/inwsy/project/1129452)
