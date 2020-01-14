@@ -4,6 +4,9 @@ date: 2020-01-31T17:40:09Z
 draft: false
 tags: 
 ---
+
+[TOC]
+
 ## 緣由
 > zabbix 抓不到部份的監控值，猜測是因為VC 版本問題，故升版看是否能正常收到監控數據。VC 更新時，服務不受影響。
 > 下方為說明時示範用IP：
@@ -32,7 +35,7 @@ tags:
 
 #### Witness node
 登入到 Active node 後，再登入到 Witness node (`10.1.0.3`)上。(IP 會在 HA IP Address 那邊)。
-> 登入後，不用切到 _shell_ 裡，在 _appliancesh_ 即可。(如圖)  
+> 登入後，不用切到 _shell_ 裡，在 _appliancesh_ 即可。(圖為 _appliancesh_ 的命令列)  
 > ![](https://raw.githubusercontent.com/alee801223/images/master/20200114172439.png)
 
 接著將要更新的 patch 檔，掛載到 Witness node 上，並輸入以下指令。
@@ -100,6 +103,20 @@ Command> software-packages install --iso --acceptEulas
 
 ## 後記
 更新後還是抓不到，已哭。
+
+### 同場加映
+如果遇到密碼過期的情況，會無法更新，如下圖。  
+![](https://raw.githubusercontent.com/alee801223/images/master/20200114175546.png)
+
+此時要更新密碼才能做後續的更新。
+如果無法從 management UI 更新密碼的話。要登入到 cluster (Active Node、Passive Node、Witness Node)各台機器上，進入 shell mode，並輸入 `passwd` 進行更新。
+
+```
+# passwd
+New password:
+Retype new password:
+passwd: password updated successfully
+```
 
 ## Reference
 - [vSphere 6.5 - Updating Appliance configured with vCenter HA](https://davidstamen.com/2017/02/03/vsphere-65-updating-appliance-configured-with-vcenter-ha/)
