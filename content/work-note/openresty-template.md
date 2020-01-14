@@ -1,7 +1,7 @@
 ---
 title: Openresty template
 date: 2020-01-03T21:40:09Z
-draft: true
+draft: false
 tags: ["nginx", "template", "openresty"]
 ---
 [TOC]
@@ -82,9 +82,6 @@ local red = redis:new()
 red:set_timeout(1000)
 -- Test redis connection
 local ok, err = red:connect(redisIp, redisPort)
--- record reused time, for debug
--- local times, err = red:get_reused_times()
--- ngx.log(ngx.CRIT, times)
 if not ok then
         ngx.log(ngx.CRIT, "failed to connect: ", err)
         return
