@@ -24,7 +24,7 @@ tags:
 ### 切換 Maintenance Mode
 登入到 vSphere Web Client，將 vCenter 切換為 Maintenance Mode。
 
-![](![](https://raw.githubusercontent.com/alee801223/images/master/20200114171833.png)
+![](https://raw.githubusercontent.com/alee801223/images/master/20200114171833.png)
 
 ### 進行更新
 用 ssh 登入到 vCenter(`10.1.0.10`)，登入時，會是登入到 Active Node 的 server 上。
@@ -32,7 +32,7 @@ tags:
 
 #### Witness node
 登入到 Active node 後，再登入到 Witness node (`10.1.0.3`)上。(IP 會在 HA IP Address 那邊)。
-> 登入後，不用切到 _shell_ 裡，在 _appliancesh_ 即可。(如圖)
+> 登入後，不用切到 _shell_ 裡，在 _appliancesh_ 即可。(如圖)  
 > ![](https://raw.githubusercontent.com/alee801223/images/master/20200114172439.png)
 
 接著將要更新的 patch 檔，掛載到 Witness node 上，並輸入以下指令。
