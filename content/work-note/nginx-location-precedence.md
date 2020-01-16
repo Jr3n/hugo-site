@@ -3,6 +3,8 @@ title: Nginx Location 處理
 date: 2019-12-31T16:40:09Z
 draft: false
 tags: ["nginx", "location"]
+series: ["Nginx-notes"]
+categories: ["0x01工作筆記"]
 ---
 [TOC]
 # Nginx Location 處理

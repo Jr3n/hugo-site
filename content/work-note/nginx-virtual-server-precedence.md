@@ -3,6 +3,8 @@ title: Nginx Virtual Server Precedence
 date: 2019-12-31T16:40:09Z
 draft: false
 tags: ["nginx", "server-name", "listen"]
+series: ["Nginx-notes"]
+categories: ["0x01工作筆記"]
 ---
 [TOC]
 # Nginx Virtual Server Precedence

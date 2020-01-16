@@ -3,6 +3,8 @@ title: Openresty upstream health check
 date: 2020-01-03T21:40:09Z
 draft: false
 tags: ["nginx", "healthcheck", "openresty"]
+series: ["Nginx-notes"]
+categories: ["0x01工作筆記"]
 ---
 [TOC]
 ## 起因

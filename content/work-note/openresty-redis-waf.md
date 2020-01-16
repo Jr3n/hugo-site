@@ -1,8 +1,10 @@
 ---
 title: Openresty redis WAF
 date: 2020-01-03T21:40:09Z
-draft: true
+draft: false
 tags: ["nginx", "WAF", "openresty"]
+series: ["Nginx-notes"]
+categories: ["0x01工作筆記"]
 ---
 [TOC]
 ## Lua code

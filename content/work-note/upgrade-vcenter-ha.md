@@ -1,13 +1,13 @@
 ---
 title: Upgrade vCenter HA
-date: 2020-01-31T17:40:09Z
+date: 2020-01-13T21:40:09Z
 draft: false
-tags: 
+tags: ["vmware"]
+series: ["VMware"]
+categories: ["0x01工作筆記"]
 ---
-
 [TOC]
-
-## 緣由
+## 起因
 > zabbix 抓不到部份的監控值，猜測是因為VC 版本問題，故升版看是否能正常收到監控數據。VC 更新時，服務不受影響。
 > 下方為說明時示範用IP：
 > - vCenter MGT IP： `10.1.0.10`。

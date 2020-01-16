@@ -18,7 +18,7 @@ pygmentsuseclasses         = true
 
 [permalinks]
   blog                     = "blog/:year-:month/:slug/"
-
+  work-note                = "work-note/:year-:month/:slug/"
 
 [taxonomies]
   tag                      = "tags"
@@ -37,7 +37,7 @@ pygmentsuseclasses         = true
     name                   = "Work-note"
     weight                 = -110
     identifier             = "work-note"
-    url                    = "work-note"
+    url                    = "work-note/"
 
   [[menu.main]]
     name                   = "About"
@@ -49,7 +49,7 @@ pygmentsuseclasses         = true
   faviconfile              = "img/favicon.ico"               # from static/
   avatar                   = "img/profile.jpg"             # path to image in static dir e.g img/avatar.png 
   author                   = "Renato"
-  description              = ["Keep learning.", "Think like a hacker.", "與其取悅這個世界的法則，倒不如造就理想的自己。"]           # appears in the site header when set to a non-empty string
+  description              = ["Keep learning.", "Think like a hacker.", "與其取悅這個世界的法則，倒不如造就理想的自己"]           # appears in the site header when set to a non-empty string
   welcome_head             = "Hello, World!"
   welcome_word             = "~ No Day But Today ~"
 

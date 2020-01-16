@@ -2,7 +2,9 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: false
-tags: 
+tags: [""]
+series: [""]
+categories: ["0x0"]
 ---
 [TOC]
 ## 起因

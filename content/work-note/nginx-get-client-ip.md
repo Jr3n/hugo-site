@@ -3,6 +3,8 @@ title: Three ways to get client IP on Nginx server
 date: 2019-12-31T16:40:09Z
 draft: false
 tags: ["nginx", "remote-address", "x-forwarded-for"]
+series: ["Nginx-notes"]
+categories: ["0x01工作筆記"]
 ---
 [TOC]
 ## 起因
