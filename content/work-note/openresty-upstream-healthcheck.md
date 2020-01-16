@@ -5,6 +5,7 @@ draft: false
 tags: ["nginx", "healthcheck", "openresty"]
 series: ["Nginx-notes"]
 categories: ["0x01工作筆記"]
+toc: true
 ---
 [TOC]
 ## 起因

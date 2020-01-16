@@ -5,6 +5,7 @@ draft: false
 tags: ["nginx", "server-name", "listen"]
 series: ["Nginx-notes"]
 categories: ["0x01工作筆記"]
+toc: true
 ---
 [TOC]
 # Nginx Virtual Server Precedence
