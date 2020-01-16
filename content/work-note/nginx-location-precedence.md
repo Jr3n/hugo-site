@@ -1,6 +1,6 @@
 ---
 title: Nginx Location 處理
-date: 2019-12-31T16:40:09Z
+date: 2019-12-31T16:40:09+08:00
 draft: false
 tags: ["nginx", "location"]
 series: ["Nginx-notes"]

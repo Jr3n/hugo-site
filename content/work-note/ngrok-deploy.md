@@ -1,6 +1,6 @@
 ---
 title: Ngrok installation
-date: 2019-12-31T16:40:09Z
+date: 2019-12-31T16:40:09+08:00
 draft: false
 tags: ["ngrok"]
 series: ["天下武功百百種"]

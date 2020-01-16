@@ -1,6 +1,6 @@
 ---
 title: 行銷人與工程師的迴路
-date: 2020-01-07T19:30:00Z
+date: 2020-01-07T19:30:00+08:00
 draft: false
 tags: ["conference"]
 ---

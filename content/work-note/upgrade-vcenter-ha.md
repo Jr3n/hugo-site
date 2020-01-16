@@ -1,10 +1,11 @@
 ---
 title: Upgrade vCenter HA
-date: 2020-01-13T21:40:09Z
+date: 2020-01-13T21:40:09+08:00
 draft: false
 tags: ["vmware"]
 series: ["VMware"]
 categories: ["0x01工作筆記"]
+toc: true
 ---
 [TOC]
 ## 起因

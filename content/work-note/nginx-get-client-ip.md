@@ -1,6 +1,6 @@
 ---
 title: Three ways to get client IP on Nginx server
-date: 2019-12-31T16:40:09Z
+date: 2019-12-31T16:40:09+08:00
 draft: false
 tags: ["nginx", "remote-address", "x-forwarded-for"]
 series: ["Nginx-notes"]

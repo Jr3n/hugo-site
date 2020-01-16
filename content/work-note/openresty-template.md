@@ -1,6 +1,6 @@
 ---
 title: Openresty template
-date: 2020-01-03T21:40:09Z
+date: 2020-01-03T21:40:09+08:00
 draft: false
 tags: ["nginx", "template", "openresty"]
 series: ["Nginx-notes"]

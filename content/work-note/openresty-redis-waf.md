@@ -1,6 +1,6 @@
 ---
 title: Openresty redis WAF
-date: 2020-01-03T21:40:09Z
+date: 2020-01-03T21:40:09+08:00
 draft: false
 tags: ["nginx", "WAF", "openresty"]
 series: ["Nginx-notes"]

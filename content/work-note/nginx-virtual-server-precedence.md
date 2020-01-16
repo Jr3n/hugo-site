@@ -1,6 +1,6 @@
 ---
 title: Nginx Virtual Server Precedence
-date: 2019-12-31T16:40:09Z
+date: 2019-12-31T16:40:09+08:00
 draft: false
 tags: ["nginx", "server-name", "listen"]
 series: ["Nginx-notes"]

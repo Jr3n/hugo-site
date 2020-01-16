@@ -1,6 +1,6 @@
 ---
 title: Openresty upstream health check
-date: 2020-01-03T21:40:09Z
+date: 2020-01-03T21:40:09+08:00
 draft: false
 tags: ["nginx", "healthcheck", "openresty"]
 series: ["Nginx-notes"]
