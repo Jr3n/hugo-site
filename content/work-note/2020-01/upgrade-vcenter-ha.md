@@ -1,6 +1,7 @@
 ---
 title: Upgrade vCenter HA
 date: 2020-01-13T21:40:09+08:00
+lastmod: "2020-01-23+08:00"
 draft: false
 tags: ["vmware"]
 series: ["VMware"]
