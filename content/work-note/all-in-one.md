@@ -20,6 +20,14 @@ toc: true
 - [计算机是如何启动的](https://leokongwq.github.io/2018/03/21/computer-booting.html#more)
 - [linux系统如何启动](https://leokongwq.github.io/2018/03/23/computer-booting-linux.html#more)
 
+#### CPU
+- [关于CPU Cache -- 程序猿需要知道的那些事](http://cenalulu.github.io/linux/all-about-cpu-cache/)
+- [理解 CPU Cache](http://wsfdl.com/linux/2016/06/11/%E7%90%86%E8%A7%A3CPU%E7%9A%84cache.html)
+- [cache 原理和實驗](https://hackmd.io/@EW34LLeXTra2Oikg0WEQ5Q/S14L26-_l?type=view)
+
+#### TCP/IP
+- [TCP 三向交握](https://notfalse.net/7/three-way-handshake)
+
 ### VMware
 - [VMware ESXi patch安裝小記](http://sakananote2.blogspot.com/2016/08/vmware-esxi-patch-profile-update.html)
 - [How to Reset the ESXi Root Password](https://www.altaro.com/vmware/reset-esxi-root-password/)
@@ -33,6 +41,9 @@ toc: true
 
 
 ## Docker
+[[自動建置實戰]Jenkins+Github+Docker](http://mis101bird.js.org/cd/)
+[10张图带你深入理解Docker容器和镜像](http://dockone.io/article/783)
+[Docker使用总结](http://dockone.io/article/1034)
 
 ## redis
 
@@ -41,10 +52,16 @@ toc: true
 ## grafana
 
 ## prometheus
+[照顧 Prometheus 的生活起居](https://medium.com/starbugs/%E7%85%A7%E9%A1%A7-prometheus-%E7%9A%84%E7%94%9F%E6%B4%BB%E8%B5%B7%E5%B1%85-e2d7a8997b86)
 
 ## nagios
 
 ## nginx
 
+## Vault
+- [密碼都放 Vault 裡了，然後呢？！](https://medium.com/starbugs/%E5%AF%86%E7%A2%BC%E9%83%BD%E6%94%BE-vault-%E8%A3%A1%E4%BA%86-%E7%84%B6%E5%BE%8C%E5%91%A2-97c7832d59f)
+- [幫 Credentials 找個窩](https://www.slideshare.net/smalltown20110306/hashicorp-vault-workshop-credentials)
+
 ## Security
 - [白帽觀點](https://secview.io/posts/10-modern-web-2019/)
+- [浅谈 DDoS 攻击与防御](https://www.hi-linux.com/posts/50873.html)
