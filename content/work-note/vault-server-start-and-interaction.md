@@ -133,5 +133,3 @@ $ vault kv delete secret/7days
 
 Success! Data deleted (if it existed) at: secret/7days
 ```
-
----
