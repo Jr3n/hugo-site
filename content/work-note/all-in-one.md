@@ -52,11 +52,12 @@ toc: true
 ## grafana
 
 ## prometheus
-[照顧 Prometheus 的生活起居](https://medium.com/starbugs/%E7%85%A7%E9%A1%A7-prometheus-%E7%9A%84%E7%94%9F%E6%B4%BB%E8%B5%B7%E5%B1%85-e2d7a8997b86)
+- [照顧 Prometheus 的生活起居](https://medium.com/starbugs/%E7%85%A7%E9%A1%A7-prometheus-%E7%9A%84%E7%94%9F%E6%B4%BB%E8%B5%B7%E5%B1%85-e2d7a8997b86)
 
 ## nagios
 
 ## nginx
+- [server send tcp fin, ack when nginx reload](https://serverfault.com/questions/523417/reloading-new-nginx-configuration-with-no-downtime)
 
 ## Vault
 - [密碼都放 Vault 裡了，然後呢？！](https://medium.com/starbugs/%E5%AF%86%E7%A2%BC%E9%83%BD%E6%94%BE-vault-%E8%A3%A1%E4%BA%86-%E7%84%B6%E5%BE%8C%E5%91%A2-97c7832d59f)
