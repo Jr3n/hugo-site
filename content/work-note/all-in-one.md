@@ -9,6 +9,7 @@ toc: true
 
 ## Operation system
 ### Linux
+- [Linuxtoy](https://twitter.com/linuxtoy)
 
 ### CLI
 - [命令列的藝術](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh-Hant.md)
@@ -31,6 +32,7 @@ toc: true
 ### VMware
 - [VMware ESXi patch安裝小記](http://sakananote2.blogspot.com/2016/08/vmware-esxi-patch-profile-update.html)
 - [How to Reset the ESXi Root Password](https://www.altaro.com/vmware/reset-esxi-root-password/)
+- [禁用时间同步](https://kb.vmware.com/s/article/1189?lang=zh_CN)
 
 ## Ansible
 - [best-practices-for-ansible](https://www.slideshare.net/GeorgeShuklin1/best-practices-for-ansible)
@@ -38,16 +40,18 @@ toc: true
 - [ansible-variable-precedence](https://gist.github.com/ekreutz/301c3d38a50abbaad38e638d8361a89e)
 - [加速你的ansible](https://speakerdeck.com/eric8230/jia-su-ni-de-ansible)
 - [Custom credentials in Ansible Tower/AWX](https://jpmens.net/2019/04/16/custom-credentials-in-ansible-tower-awx/)
-
+- [5 Lessons Learned From Writing Over 300,000 Lines of Infrastructure Code](https://blog.gruntwork.io/5-lessons-learned-from-writing-over-300-000-lines-of-infrastructure-code-36ba7fadeac1)
 
 ## Docker
-[[自動建置實戰]Jenkins+Github+Docker](http://mis101bird.js.org/cd/)
-[10张图带你深入理解Docker容器和镜像](http://dockone.io/article/783)
-[Docker使用总结](http://dockone.io/article/1034)
+- [[自動建置實戰]Jenkins+Github+Docker](http://mis101bird.js.org/cd/)
+- [10张图带你深入理解Docker容器和镜像](http://dockone.io/article/783)
+- [Docker使用总结](http://dockone.io/article/1034)
+- [安德魯的部落格](https://columns.chicken-house.net/2016/09/15/microservice-case-study-01/)
 
 ## redis
 
 ## zabbix
+- [Zabbix-in-Telegram](https://github.com/ableev/Zabbix-in-Telegram)
 
 ## grafana
 
@@ -66,3 +70,4 @@ toc: true
 ## Security
 - [白帽觀點](https://secview.io/posts/10-modern-web-2019/)
 - [浅谈 DDoS 攻击与防御](https://www.hi-linux.com/posts/50873.html)
+- [滲透測試Blog Uknow](https://uknowsec.cn/)
