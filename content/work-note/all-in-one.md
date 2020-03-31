@@ -72,3 +72,7 @@ toc: true
 - [白帽觀點](https://secview.io/posts/10-modern-web-2019/)
 - [浅谈 DDoS 攻击与防御](https://www.hi-linux.com/posts/50873.html)
 - [滲透測試Blog Uknow](https://uknowsec.cn/)
+
+## HIDS
+### wazuh
+- [wazhu之agent功能详解](https://www.cnblogs.com/backlion/p/10329601.html)
