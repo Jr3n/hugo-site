@@ -10,6 +10,7 @@ toc: true
 ## Operation system
 ### Linux
 - [Linuxtoy](https://twitter.com/linuxtoy)
+- [ダイレクトルールを使ったFirewallの強化](http://www.yam-web.net/centos7/direct-rule/index.html)
 
 ### CLI
 - [命令列的藝術](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh-Hant.md)
